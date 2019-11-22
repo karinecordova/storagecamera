@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Castração de Animais 
+    </ion-title>
+  </ion-navbar>
+
+
+  <img src="../assets/imgs/projeto-castracao.jpg" class="logo"> 
+  <h3> Sistema para Cadastro de Animais em Espera para Castração</h3>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card *ngFor="let item of contacts" [ngClass]="{'item-inactive': !item.contact.active }">
+
+      <ion-card-header>
+        <h1>{{ item.contact.name }}</h1>
+        <br>
+
+        <h1><img src="{{ item.contact.photo }}" width="100"></h1>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ item.contact.phone }} - {{ item.contact.birth | date:'dd/MM/yyyy'  }} </p>
+     
+      </ion-card-content>
+      <ion-card-content>
+    
+      </ion-card-content>
+
+     
+      <ion-row text-center>
+        <ion-col>
+          <button ion-button icon-left clear  color="secondary" small (click)="editContact(item);">
+            <ion-icon name="create" color="secondary"></ion-icon>
+            <div>Editar</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small color="secondary" (click)="removeContact(item);">
+            <ion-icon name="trash" color="secondary"></ion-icon>
+            <div>Excluir</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <a href="tel:{{ item.contact.phone }}" ion-button icon-left clear small color="secondary">
+            <ion-icon name="call" color="secondary"></ion-icon>
+            <div>Ligar</div>
+          </a>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </ion-list>
+ 
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addContact()" color="secondary"><ion-icon name="add" ></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Storage Example
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Telefone</ion-label>
+      <ion-input type="tel" name="phone" [(ngModel)]="model.phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Nascimento</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="birth" [(ngModel)]="model.birth"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ativo</ion-label>
+      <ion-checkbox name="active" [(ngModel)]="model.active" color="secondary"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+        <ion-label>Foto</ion-label>                                                                                                                                                           
+        <ion-input type="text" name="photo" [(ngModel)]="model.photo" value="{{photo}}" > </ion-input>        
+    </ion-item> 
+    <ion-col>
+
+      <img src="{{model.photo}}"/>
+      <button ion-button clear small color="primary" icon-left (click)="getPhoto('picture')" color="secondary">
+            <ion-icon name='camera'></ion-icon>
+            Câmera
+          </button>
+    </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="primary" icon-left (click)="getPhoto('gallery')" color="secondary">
+          <ion-icon name='albums'></ion-icon>
+          Galeria
+        </button>
+      </ion-col>
+
+  </ion-list>
+
+  <button ion-button block (click)="save()" color="secondary">Salvar</button>
+
+</ion-content>
